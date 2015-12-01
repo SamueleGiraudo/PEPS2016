@@ -1,0 +1,554 @@
+% Création : fév. 2015.
+\documentclass[10pt,reqno]{amsart}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,shuffle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Layout.
+\usepackage[top=1.6cm,bottom=1.6cm,left=1.5cm,right=1.5cm]{geometry}
+
+% Colors of hyperlinks.
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hyperindex=true,frenchlinks=true,colorlinks=true,
+citecolor=RoyalBlue,linkcolor=LimeGreen,urlcolor=Tan,linktocpage,
+pagebackref=false]{hyperref}
+
+% Tikz.
+\usepackage{tikz}
+
+% Misc.
+\usepackage{cite}
+\usepackage{subcaption}
+\usepackage{ifthen}
+\usepackage{textcomp} % symbole euro
+\usepackage{calc} % encadrement de texte
+\usepackage{array} % fixer la taille des colonnes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Projet PEPS \\
+Dénombrement de prographes}
+\date{\today}
+\keywords{Combinatoire~; dénombrement~; opérades~; PROs~;
+séries génératrices~; arbres.}
+
+\author{Nicolas Borie}
+\author{Jean-Paul Bultel}
+\author{Samuele Giraudo}
+\author{Matthieu Josuat-Vergès}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numberwithin{equation}{subsection}
+\setcounter{tocdepth}{2}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzstyle{Noeud} = [circle,draw=Turquoise!80,fill=Turquoise!20,thick,
+inner sep=0pt,minimum size=4mm,line width=1pt]
+\tikzstyle{Arete}=[OrangeRed!80,cap=round,line width=1pt]
+\tikzstyle{Feuille}=[rectangle,draw=Black!70,fill=Black!20,
+inner sep=0pt,minimum size=1mm,line width=.75pt]
+\tikzstyle{Operateur}=[rectangle,rounded corners,draw=YellowGreen!80,
+fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
+\tikzstyle{Marque1}=[draw=YellowOrange!80,fill=YellowOrange!20]
+\tikzstyle{Marque2}=[draw=SeaGreen!80,fill=SeaGreen!20]
+\tikzstyle{Marque3}=[draw=Maroon!80,fill=Maroon!20]
+\tikzstyle{Marque4}=[draw=Periwinkle!80,fill=Periwinkle!20]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Hilbert}{\mathcal{H}}
+\newcommand{\Gen}{\mathcal{G}}
+\newcommand{\OpLibre}{\mathrm{OL}}
+\newcommand{\PROLibre}{\mathrm{PL}}
+\newcommand{\Entrees}{\mathrm{ent}}
+\newcommand{\Sorties}{\mathrm{sor}}
+\newcommand{\Degre}{\mathrm{deg}}
+
+\usepackage{ifthen}
+\newboolean{draft}
+\setboolean{draft}{true} % true affiche les todo et info, false les degagent
+\ifdraft
+\newcommand{\TODO}[2][To do: ]{\textcolor{red}{\textit{#1#2}}}
+\newcommand{\INFO}[2][Info: ]{\textcolor{green}{\textit{#1#2}}}
+\else
+\newcommand{\TODO}[2][]{}
+\newcommand{\INFO}[2][]{}
+\fi
+
+\newcommand{\Cacher}[1]{} % Commande qui efface son argument !
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% \maketitle
+
+\begin{tabular}{|>{\centering\arraybackslash}m{5.5cm}|>
+    {\centering\arraybackslash}m{11.6cm}|} \hline
+    \includegraphics{logo_CNRS.jpg} & \Large{APPEL A PROJETS} \\
+    INS2I - 2015 & \Large{JCJC INS2I 2015} \\ \hline
+\end{tabular}
+\bigskip
+
+\Large{\bf{Identification}}
+
+\begin{tabular}{|m{5.5cm}|m{11.6cm}|} \hline
+    Nom du porteur du projet & Samuele Giraudo (M.C.F. LIGM - UMR 8049)
+        \\ \hline
+    Adresse e-mail du porteur & samuele.giraudo@univ-mlv.fr \\ \hline
+    Titre long du projet & Pr{\bf o}priétés {\bf c}ombinatoires et
+    {\bf a}lgébriques des {\bf P}ROs l{\bf i}bres\\ \hline
+    Acronyme du projet & OCAPI \\ \hline
+\end{tabular}
+\bigskip
+
+\Large{\bf{Résumé du projet}}
+
+\fbox{\parbox{\linewidth-8\fboxrule-8\fboxsep}{Les prographes
+    sont des assemblages plans d'opérateurs ayant possiblement plusieurs
+    entrées et plusieurs sorties. Ces objets combinatoires généralisent
+    un grand nombre de structures discrètes bien connues. Par exemple,
+    on peut voir les arbres binaires comme des prographes dans lesquels
+    le seul opérateur de base apparaissant possède deux entrées et une
+    seule sortie. Toutefois, les prographes sont aujourd'hui peu connus.
+    Notamment, comme l'objet est plan, déterminer la structure de données
+    à utiliser en machine pour leur génération exhaustive efficace est
+    déjà un défi intéressant. Ce projet a vocation à s'appuyer sur
+    l'investigation expérimentale, dans un premier temps, pour la
+    génération et le dénombrement des prographes. Dans un deuxième temps,
+    nous tenterons d'établir des résultats théoriques sur le comptage
+    des prographes selon diverses caractéristiques pour mieux comprendre
+    ces objets.}}
+\bigskip
+
+\Large{\bf{Autres membres du projet}}
+
+\begin{tabular}{|l|c|l|c|} \hline
+    \bf{Nom partenaire} & \bf{Qualité/} & \bf{e-mail partenaire}
+        & \bf{Unité de} \\
+    & \bf{Titre} &  & \bf{recherche} \\ \hline
+    Nicolas Borie & M.C.F. & nicolas.borie@u-pem.fr
+        & LIGM - UMR 8049 \\ \hline
+    Jean-Paul Bultel & Docteur & jean-paul.bultel@univ-rouen.fr
+        & LITIS - EA 4108 \\ \hline
+  Matthieu Josuat-Vergès \qquad & C.R.2 & matthieu.josuat-verges@u-pem.fr \qquad
+    & LIGM - UMR 8049 \qquad \\ \hline
+\end{tabular}
+\bigskip
+
+\Large{\bf{Description du projet}}
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contexte}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Les opérades}
+L'algèbre universelle est une branche des mathématiques et de
+l'informatique dont le rôle est de répertorier et d'étudier les
+structures algébriques. Il en existe de plusieurs sortes, des monoïdes
+aux algèbres de Lie, en passant par les treillis et les algèbres de Hopf.
+Le point commun à ces objets est qu'ils sont constitués d'un ensemble
+---~ou bien d'un espace vectoriel~--- sur lequel agissent des opérateurs.
+Ces opérateurs vérifient un certain nombre de relations~; par exemple,
+le produit des monoïdes est associatif et l'opération des algèbres de
+Lie ---~le crochet de Lie~--- est antisymétrique et vérifie l'identité
+de Jacobi.
+
+Toutes ces classes de structures algébriques, qui sont de ce fait
+décrites par leurs opérations et les relations qu'elles vérifient,
+interviennent en informatique et en combinatoire de manière cruciale. À
+titre d'exemple, le monoïde libre constitue le socle de base de la
+théorie des langages et un très grand nombre d'exemples récents (voir
+par exemple~\cite{HNT05,Gir12}) montre que les algèbres de Hopf
+combinatoires apportent des propriétés très précises sur les objets
+combinatoires qu'elles mettent en jeu. L'étude d'un point de vue général
+de toutes ces classes de structures algébriques possède ainsi des
+avantages très clairs.
+
+L'un des outils modernes les plus adéquats et les plus prometteurs pour
+obtenir des résultats dans ce sens est offert par la théorie des
+{\em opérades}, dont les premières impulsions proviennent de la
+topologie algébrique~\cite{May72}. D'un point de vue intuitif, une opérade
+est un espace vectoriel d'opérateurs que l'on peut composer entre eux
+(plus de détails sur les opérades sont répertoriés dans~\cite{Mar08,LV12}).
+Les opérades changent ainsi le référentiel de l'étude~: nous ne considérons
+plus, comme c'est le cas dans une structure algébrique, des produits
+d'éléments via des opérateurs mais manipulons plutôt des opérateurs et
+les composons pour en obtenir des nouveaux. Ce changement de point de
+vue offre plusieurs avantages. Parmi eux, nous avons le fait qu'une
+opérade encode à elle seule toute une catégorie de structures algébriques.
+Par exemple, l'{\em opérade associative} représente tous les monoïdes et
+l'{\em opérade de Lie} représente toutes les algèbres de Lie. La
+compréhension d'une opérade et de ses propriétés donne beaucoup
+d'informations sur la totalité des éléments de la classe de structures
+algébriques qu'elle encode.
+
+En outre, même si elles proviennent historiquement d'un contexte purement
+algébrique, les opérades occupent aujourd'hui une place de choix en
+combinatoire. En effet, la définition d'opérades sur des objets
+combinatoires permet d'en extraire des propriétés, d'obtenir des
+résultats énumératifs ou encore d'établir des bijections entre différentes
+familles d'objets combinatoires~\cite{Cha08,CG14,Gir15}. De plus, l'étude
+des opérades fait appel à des outils combinatoires classiques, comme les
+séries génératrices et la combinatoire de diverses familles d'arbres.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Les PROs}
+La théorie des opérades possède cependant quelques inconvénients,
+principalement dus à ses limitations. Tout d'abord, les opérades ne
+permettent pas de décrire les groupes, structures algébriques pourtant
+omniprésentes. Elle n'offrent pas non plus la possibilité de décrire des
+structures algébriques ayant une opération distributive sur une autre,
+comme c'est le cas dans les semi-anneaux. Une autre limitation, orthogonale
+à ces dernières, réside dans le fait que les opérades permettent de
+modéliser seulement des structures algébriques dans lesquelles les
+opérateurs disposent d'exactement une sortie. Les algèbres de Hopf, qui
+disposent d'un coproduit, une opération à une entrée et deux sorties, ne
+peuvent ainsi pas être modélisées par les opérades.
+
+Cette dernière limitation est levée en s'autorisant à enrichir l'espace
+des opérateurs propres aux opérades avec des opérateurs à plusieurs
+sorties. Ces objets, les {\em PROs}, introduits par Mac Lane~\cite{McL65}
+(de manière surprenante historiquement avant les opérades), généralisent
+les opérades et permettent de décrire les algèbres de Hopf ainsi que
+d'autres structures algébriques encore plus complexes. Un PRO,
+abréviation de {\em product category}, est ainsi un ensemble (ou un
+espace vectoriel) d'opérateurs à un nombre arbitraire d'entrées et de
+sorties, que l'on peut composer entre eux.
+
+L'étude générale des PROs mène, comme c'était le cas pour l'étude des
+opérades, à l'obtention de propriétés sur des structures algébriques,
+cette fois-ci plus complexes. Un angle d'attaque pour obtenir des
+résultats dans ce sens consiste à concentrer initialement l'étude sur
+les {\em PROS libres}~\cite{Laf03,Mar08,BG14}. Ces structures sont
+définies comme suit. Étant donné un ensemble bigradué de générateurs
+\begin{equation}
+    \Gen :=
+    \bigsqcup_{p \geq 1} \bigsqcup_{q \geq 1} \Gen(p, q),
+\end{equation}
+nous appelons {\em prographe élémentaire sur $\Gen$} tout élément de
+$\Gen$. Un élément de $\Gen(p, q)$ peut se voir comme un opérateur
+à $p$ entrées et $q$ sorties (et se dessine comme tel). Un
+{\em prographe sur $\Gen$} est un opérateur qui peut être obtenu en
+composant des prographes élémentaires sur $\Gen$ entre eux
+(voir la figure~\ref{fig:exemple_prographe}).
+\begin{figure}[ht]
+    \centering
+    \begin{equation*}\footnotesize
+        \begin{split}
+        \begin{tikzpicture}[xscale=.24,yscale=.19]
+            \node[Feuille](S1)at(2,0){};
+            \node[Feuille](S2)at(4,0){};
+            \node[Feuille](S3)at(5,0){};
+            \node[Feuille](S4)at(7,0){};
+            \node[Feuille](S5)at(9,0){};
+            \node[Feuille](S6)at(13,0){};
+            \node[Feuille](S7)at(16,0){};
+            \node[Feuille](S8)at(18,0){};
+            \node[Feuille](S9)at(19,0){};
+            %
+            \node[Feuille](E1)at(2,-10){};
+            \node[Feuille](E2)at(4,-10){};
+            \node[Feuille](E3)at(5,-10){};
+            \node[Feuille](E4)at(6,-10){};
+            \node[Feuille](E5)at(8,-10){};
+            \node[Feuille](E6)at(10,-10){};
+            \node[Feuille](E7)at(12,-10){};
+            \node[Feuille](E8)at(14,-10){};
+            \node[Feuille](E9)at(15,-10){};
+            \node[Feuille](EA)at(16,-10){};
+            \node[Feuille](EB)at(17,-10){};
+            \node[Feuille](EC)at(18,-10){};
+            \node[Feuille](ED)at(19,-10){};
+            %
+            \node[Operateur](N1)at(3,-5){\begin{math}{\tt a}\end{math}};
+            \node[Operateur](N2)at(7,-8){\begin{math}{\tt a}\end{math}};
+            \node[Operateur,Marque3](N3)at(9,-2){\begin{math}{\tt b}\end{math}};
+            \node[Operateur](N4)at(11,-8){\begin{math}{\tt a}\end{math}};
+            \node[Operateur](N5)at(13,-5){\begin{math}{\tt a}\end{math}};
+            \node[Operateur,Marque2](N6)at(16,-5){\begin{math}{\tt c}\end{math}};
+            %
+            \draw[Arete](N1)--(S1);
+            \draw[Arete](N1)--(S2);
+            \draw[Arete](E3)--(S3);
+            \draw[Arete](N2)--(S4);
+            \draw[Arete](N3)--(S5);
+            \draw[Arete](N5)--(S6);
+            \draw[Arete](N6)--(S7);
+            \draw[Arete](EC)--(S8);
+            \draw[Arete](ED)--(S9);
+            %
+            \draw[Arete](N1)--(E1);
+            \draw[Arete](N1)--(E2);
+            \draw[Arete](N2)--(E4);
+            \draw[Arete](N2)--(E5);
+            \draw[Arete](N4)--(E6);
+            \draw[Arete](N4)--(E7);
+            \draw[Arete](N5)--(E8);
+            \draw[Arete](N6)--(E9);
+            \draw[Arete](N6)--(EA);
+            \draw[Arete](N6)--(EB);
+            %
+            \draw[Arete](N2)--(N3);
+            \draw[Arete](N3)--(N4);
+            \draw[Arete](N3)--(N5);
+            \draw[Arete](N4)--(N5);
+        \end{tikzpicture}
+        \end{split}
+    \end{equation*}
+    \caption{Un prographe sur $\Gen := \Gen(2, 2) \sqcup \Gen(3, 1)$
+    où $\Gen(2, 2) := \{{\tt a}\}$ et $\Gen(3, 1) := \{{\tt b}, {\tt c}\}$.
+    Il est de
+    degré $6$, d'arité entrante $13$ et d'arité de sortie $9$.}
+    \label{fig:exemple_prographe}
+\end{figure}
+Le {\em PRO libre sur $\Gen$} est l'ensemble $\PROLibre(\Gen)$ des
+prographes sur $\Gen$ muni de l'opération permettant de les composer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objectifs}
+Si $x$ est un prographe sur $\Gen$, le {\em degré} $\Degre(x)$ de $x$ est
+le nombre de prographes élémentaires qui le constituent.
+L'{\em arité entrante} $\Entrees(x)$ (resp. {\em de sortie}
+$\Sorties(x)$) de $x$ est le nombre total d'entrées (resp. de sorties)
+de $x$ (voir l'exemple en figure~\ref{fig:exemple_prographe}). La
+{\em série de Hilbert} du PRO libre sur $\Gen$ est la série génératrice
+trivariée
+\begin{equation} \label{equ:serie_hilbert_PROs}
+    \Hilbert_{\Gen}(y, z, t)
+    := \sum_{x \in \PROLibre(\Gen)}
+    y^{\Entrees(x)} \; z^{\Sorties(x)} \; t^{\Degre(x)}.
+\end{equation}
+Celle-ci dénombre les prographes sur $\Gen$ selon leur degré et leurs
+arités d'entrée et de sortie.
+
+Si le calcul des séries de Hilbert des opérades libres (série analogue
+à~\eqref{equ:serie_hilbert_PROs} dans le contexte des opérades) est
+quelque chose de bien connu, le calcul des séries de Hilbert des PROs
+libres ne l'est pas. Le dénombrement des prographes selon leur degré et
+leurs arités d'entrée et de sortie est ainsi une question ouverte à
+laquelle nous souhaitons apporter des éléments de réponse. De ce fait,
+obtenir une expression pour $\Hilbert_{\Gen}(y, z, t)$, étant donné
+un ensemble de générateurs $\Gen$, est l'objectif majeur de ce projet.
+
+Dans un travail récent, certains des membres de ce projet ont eu des
+résultats dans ce sens~\cite{BG14} pour le dénombrement des prographes
+libres sur un générateur ayant le même nombre d'entrées que de sorties.
+Ce résultat s'appuie sur le {\em lemme d'inversion} de Viennot~\cite{Vie86},
+introduit dans le contexte du dénombrement d'empilements de pièces. En
+effet, un prographe élémentaire, qui possède un même nombre $\ell$
+d'entrées que de sorties, peut être vu comme une pièce de largeur $\ell$
+d'un empilement de pièces. Le cas général semble bien plus complexe à
+traiter et semble nécessiter des outils combinatoires différents.
+
+Nous espérons, à l'issue de ce projet, soumettre un article à un journal
+de combinatoire algébrique ainsi qu'un article à une conférence du
+même domaine.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Méthodologie}
+L'une des questions préliminaires au problème soumis consiste à obtenir
+un moyen de coder les prographes qui soit adapté à l'extraction
+d'informations pour leur dénombrement. Une piste prometteuse pour cela
+consiste à s'inspirer des outils de génération combinatoire déjà
+disponibles dans le logiciel \texttt{Sage}~\cite{Sage} comme la construction
+\texttt{SearchForest} développée par Nicolas Borie. Écrire un programme
+qui accepte en entrée un ensemble de générateurs $\Gen$, et génère ainsi
+tous les prographes sur $\Gen$ d'un degré fixé et ayant des arités
+d'entrée et de sortie données, constituera un outil de base pour ce travail.
+
+En effet, l'obtention de données énumératives par le biais
+d'expérimentations informatiques nous semble être une stratégie efficace
+pour regrouper des informations sur les prographes. Les suites d'entiers
+qui dénombrent les prographes selon certaines de leurs caractéristiques,
+obtenues par ce procédé, peuvent être recoupées avec les informations
+de l'{\em Encyclopédie en ligne des suites de nombres entiers}~\cite{Slo}.
+Cette approche permet, dans un premier temps, de conjecturer des formules
+explicites pour l'énumération de prographes. De plus, si les suites
+d'entiers obtenues par ces expérimentations vérifient des récurrences,
+celles-ci nous offriront des pistes sur la bonne manière d'appréhender les
+prographes en terme d'assemblages ou de désassemblages d'objets.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Perspectives}
+La connaissance de la série $\Hilbert_{\Gen}(y, z, t)$ pour tout ensemble
+de générateurs $\Gen$, ainsi que le processus nécessaire à sa découverte,
+mènent à de multiples perspectives.
+
+La première est de nature purement combinatoire. En effet, la connaissance
+du nombre de prographes sur un ensemble de générateurs $\Gen$ permet
+d'établir l'existence de bijections entre des familles d'objets
+combinatoires et informatiques (comme des mots, des arbres, des graphes,
+des cartes, {\em etc.}) et certains prographes. Ceci offrirait un moyen
+de coder par des prographes des objets existants et donc de les
+appréhender d'une façon inédite. On peut ainsi espérer obtenir de
+nouvelles propriétés combinatoires et même algorithmiques sur les objets
+ainsi codés.
+
+Un deuxième axe est de nature algébrique. En effet, la connaissance de
+$\Hilbert_{\Gen}(y, z, t)$ donne des informations sur les dimensions
+des PROs libres, ce qui est une donnée algébrique fondamentale. Nous
+pensons de plus que la compréhension des prographes, nécessaire à
+leur dénombrement, va se baser sur des propriétés algébriques des
+PROs libres qui restent à découvrir. Il semble, en effet, qu'il soit
+nécessaire de poser une définition alternative de la catégorie des
+PROs pour la rendre davantage adaptée à notre problème.
+
+Un troisième axe mélange les deux aspects précédents. Depuis environ une
+vingtaine d'années, la théorie des algèbres de Hopf combinatoires a connu
+une forte expansion et on cherche toujours de nouveaux objets
+combinatoires sur lesquels construire des algèbres de Hopf. Les PROs
+étant des objets plus généraux et moins étudiés, la théorie n'est pas
+aussi riche. Cependant, il est clair que certains objets combinatoires,
+qui ne rentrent pas dans le cadre des algèbres de Hopf, seront tout à fait
+abordables sous l'angle des PROs. L'objectif est donc de montrer que
+c'est l'outil naturel pour étendre le spectre d'objets abordables par la
+combinatoire algébrique.
+
+Tous ces résultats potentiels peuvent se connecter avec des travaux
+récents sur les PROs, soit étudiés d'un point de vue de la théorie du
+calcul (voir~\cite{Laf03}), soit d'un point de vue algébrique
+(voir~\cite{Val07}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Membres du projet}
+Nous décrivons ici la constitution de l'équipe du projet et expliquons
+en quoi elle nous semble adaptée. Le domaine de recherche des
+quatre membres s'inscrit en combinatoire algébrique~; chacun possède
+néanmoins ses spécialités.
+
+Le projet est porté par {\bf Samuele Giraudo}
+(\url{http://igm.univ-mlv.fr/~giraudo/}). Il a effectué sa thèse à
+l'université Paris-Est Marne-la-Vallée au LIGM sous la direction de
+Jean-Christophe Novelli et Florent Hivert, soutenue le 8 décembre 2011.
+Il occupe depuis 2012 un poste de maître de conférences en informatique
+au LIGM dans l'équipe combinatoire algébrique et calcul symbolique. Son
+domaine principal est la théorie des opérades. Il a notamment
+obtenu dans ce contexte une construction générale d'opérades à partir de
+monoïdes~\cite{Gir15} et un moyen de comprendre les propriétés d'une
+opérade en la voyant comme une certaine opérade colorée~\cite{CG14}. Ce
+membre a travaillé et obtenu des résultats sur les PROs~\cite{BG14}.
+Étant donné que la plupart des notions connues sur les opérades peuvent
+se généraliser aux PROs, ses connaissances sur les opérades pourront être
+utiles dans ce travail.
+
+{\bf Nicolas Borie} (\url{http://www-igm.univ-mlv.fr/~borie/}) a effectué
+sa thèse à l'université Paris-Sud XI au LRI sous la direction de Nicolas
+Thiéry, soutenue le 7 décembre 2011. Il occupe depuis 2013 un poste de
+maître de conférences en informatique au LIGM dans l'équipe combinatoire
+algébrique et calcul symbolique. Ce membre développe depuis de nombreuses
+années pour \texttt{Sage}. Ses connaissances en programmation et en
+expérimentation informatique seront nécessaires pour mener le projet à
+bien. L'un de ses résultats~\cite{Bor13} consiste en la conception d'un
+algorithme efficace de génération de mots d'entiers soumis à certaines
+conditions, dont certaines idées semblent pouvoir être exploitées pour
+la génération des prographes. Son domaine principal est la théorie
+effective des invariants, domaine qu'il est le seul à avoir exploré
+parmi les membres de ce groupe.
+
+{\bf Jean-Paul Bultel} a effectué sa thèse à l'université Paris-Est
+Marne-la-Vallée au LIGM sous la direction de Jean-Yves Thibon, soutenue
+le 25 novembre 2011. Il est actuellement membre associé au LIGM et au
+LITIS (Université de Rouen). Ce membre a déjà travaillé et obtenu des
+résultats sur les PROs~\cite{BG14}. Son domaine principal est la théorie
+des algèbres de Hopf combinatoires (voir~\cite{Bul11}). Ses connaissances
+des structures algébriques sur des opérateurs à plusieurs entrées et
+plusieurs sorties sera nécessaire au déroulement de ce travail.
+
+{\bf Matthieu Josuat-Vergès} (\url{http://igm.univ-mlv.fr/~josuatv/})
+a effectué sa thèse à l'université Paris-Sud XI au LRI sous la
+direction de Sylvie Corteel, soutenue le 25 janvier 2010. Il occupe
+depuis 2011 un poste de chargé de recherche CNRS au LIGM dans l'équipe
+combinatoire algébrique et calcul symbolique. Ce membre possède une
+vision très large et l'expérience la plus grande en combinatoire parmi
+les membres de ce groupe. Il a par ailleurs récemment obtenu des
+résultats énumératifs sur des familles d'arbres~\cite{JV15}. Ses
+connaissances en combinatoire vont potentiellement pouvoir mettre en
+évidence, au fil du traitement de ce projet, des connexions non
+évidentes entre le sujet du projet et d'autres thèmes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Budget}
+Le budget demandé est 14000\texteuro. Voici sa répartition.
+
+\begin{itemize}
+    \item {\bf Matériel}~: 6750\texteuro.
+    \begin{itemize}
+        \item {\em Livres}~: 750\texteuro.
+        Il s'agit de livres spécialisés au coût parfois élevé~: nous
+        fixons le prix moyen à 75\texteuro, le montant correspond donc
+        à une dizaine de livres. L'idée est de constituer une petite
+        \og bibliothèque \fg{} accessible à tous les membres du projet.
+
+        \item {\em Ordinateurs}~: 6000\texteuro.
+        Il s'agit de renouveler du matériel vieillissant.
+        L'expérimentation par le calcul formel est cruciale dans ce
+        projet et nécessite des ordinateurs avec des capacités de calcul
+        raisonnables. Nous prévoyons une machine par membre du projet à
+        1500\texteuro{} chacune, soit 6000\texteuro{} (par exemple~:
+        deux portables et deux fixes).
+
+        \item {\em Autres.}
+        Le budget non dépensé sur les deux points précédents servira
+        éventuellement à du petit matériel: tablettes, clés USB, {\em etc.}
+    \end{itemize}
+
+    \item {\bf Missions~:} 7250\texteuro.
+    \begin{itemize}
+        \item {\em Conférences internationales}~: 5550\texteuro.
+        Cette partie du budget aidera les participants à participer aux
+        conférences du domaine (FPSAC, Séminaire Lotharingien de
+        Combinatoire, {\em etc.}). Avec 1387,50\texteuro{} par participant,
+        il s'agit d'un complément à d'autres sources de financement.
+
+        \item {\em Rencontres et séances de travail}~: 1500\texteuro.
+        Elles sont l'essence du projet. C'est le moment où nous
+        chercherons des solutions aux problèmes posés, ferons le point,
+        prendrons des décisions, {\em etc.} Nous prévoyons quatre
+        rencontres d'une journée chacune, à raison d'une rencontre par
+        trimestre. La plupart des participants étant à l'UPEM, les frais
+        sont limités pour des rencontres en région parisienne. Le budget
+        de 375\texteuro{} par rencontre servira à inviter des chercheurs
+        qui travaillent sur des thèmes similaires et qui ne sont pas
+        membres du projet, comme Frédéric Chapoton ou Loïc Foissy.
+    \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}
+\bibliography{Projet}
+\bigskip
+
+\Large{\bf{Avis et visa du directeur d’unité}}
+\bigskip
+
+\end{document}
