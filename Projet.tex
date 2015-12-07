@@ -1,4 +1,5 @@
 % Création : fév. 2015.
+% Révision : Déc. 2015. pour appel 2016
 \documentclass[10pt,reqno]{amsart}
 
 \usepackage[utf8x]{inputenc}
@@ -98,7 +99,7 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
 \begin{tabular}{|>{\centering\arraybackslash}m{5.5cm}|>
     {\centering\arraybackslash}m{11.6cm}|} \hline
     \includegraphics{logo_CNRS.jpg} & \Large{APPEL A PROJETS} \\
-    INS2I - 2015 & \Large{JCJC INS2I 2015} \\ \hline
+    INS2I - 2016 & \Large{JCJC INS2I 2016} \\ \hline
 \end{tabular}
 \bigskip
 
@@ -117,20 +118,36 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
 \Large{\bf{Résumé du projet}}
 
 \fbox{\parbox{\linewidth-8\fboxrule-8\fboxsep}{Les prographes
-    sont des assemblages plans d'opérateurs ayant possiblement plusieurs
-    entrées et plusieurs sorties. Ces objets combinatoires généralisent
-    un grand nombre de structures discrètes bien connues. Par exemple,
-    on peut voir les arbres binaires comme des prographes dans lesquels
-    le seul opérateur de base apparaissant possède deux entrées et une
-    seule sortie. Toutefois, les prographes sont aujourd'hui peu connus.
-    Notamment, comme l'objet est plan, déterminer la structure de données
-    à utiliser en machine pour leur génération exhaustive efficace est
-    déjà un défi intéressant. Ce projet a vocation à s'appuyer sur
-    l'investigation expérimentale, dans un premier temps, pour la
-    génération et le dénombrement des prographes. Dans un deuxième temps,
-    nous tenterons d'établir des résultats théoriques sur le comptage
-    des prographes selon diverses caractéristiques pour mieux comprendre
-    ces objets.}}
+    sont des assemblages plans de boites ayant plusieurs entrées et
+    plusieurs sorties. Ces objets combinatoires généralisent un grand
+    nombre de structures discrètes bien connues comme les arbres (une
+    seule sortie pour chaque noeud), les permutations ou encore les
+    opérades. Toutefois, les prographes sont aujourd'hui peu
+    connus. Notamment, comme l'objet est plan, déterminer la structure
+    de données à utiliser en machine pour une génération exhaustive et
+    efficace est déjà un défi intéressant. Suivant le statut
+    considéré pour les boites, les prographes donnent des applications
+    en calcul symbolique (les boites sont des opérateurs algébriques),
+    en théorie des graphes et des flots (les boites dont les noeuds
+    d'un réseau) ou encore en logique (les boites sont conditions
+    paramétrées). Le projet OCAPI propose une étude combinatoire et
+    algébrique des prographes libres.
+    %% Les prographes
+    %% sont des assemblages plans d'opérateurs ayant possiblement plusieurs
+    %% entrées et plusieurs sorties. Ces objets combinatoires généralisent
+    %% un grand nombre de structures discrètes bien connues. Par exemple,
+    %% on peut voir les arbres binaires comme des prographes dans lesquels
+    %% le seul opérateur de base apparaissant possède deux entrées et une
+    %% seule sortie. Toutefois, les prographes sont aujourd'hui peu connus.
+    %% Notamment, comme l'objet est plan, déterminer la structure de données
+    %% à utiliser en machine pour leur génération exhaustive efficace est
+    %% déjà un défi intéressant. Ce projet a vocation à s'appuyer sur
+    %% l'investigation expérimentale, dans un premier temps, pour la
+    %% génération et le dénombrement des prographes. Dans un deuxième temps,
+    %% nous tenterons d'établir des résultats théoriques sur le comptage
+    %% des prographes selon diverses caractéristiques pour mieux comprendre
+    %% ces objets.
+}}
 \bigskip
 
 \Large{\bf{Autres membres du projet}}
@@ -149,11 +166,109 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
 \bigskip
 
 \Large{\bf{Description du projet}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  UN JOLI PRO STYLE CIRCUIT IMPRIMÉ                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}{0.45\textwidth}
+  \centering
+  \begin{tikzpicture}[yscale=0.6, xscale=0.8]
+    \tikzstyle{Boite} = [very thick]
+    \tikzstyle{Profils} = [thick]
+
+    % Cadre autour du PRO
+    \draw (0, 1) -- (5, 1);
+    \draw (0, 1) -- (0, 8);
+    \draw (5, 1) -- (5, 8);
+    \draw (0, 8) -- (5, 8);
+    
+    % Opérateurs boites du PRO
+    \draw[Boite] (3.5, 2) -- (3.5, 3) -- (4.5, 3) -- (4.5, 2) -- (3.5, 2);
+    \draw[Boite] (0.5, 2) -- (0.5, 3) -- (2.5, 3) -- (2.5, 2) -- (0.5, 2);
+
+    \draw[Boite] (0.5, 4) -- (0.5, 5) -- (3.5, 5) -- (3.5, 4) -- (0.5, 4);
+
+    \draw[Boite] (2.5, 6) -- (2.5, 7) -- (4.5, 7) -- (4.5, 6) -- (2.5, 6);
+    \draw[Boite] (0.5, 6) -- (0.5, 7) -- (1.5, 7) -- (1.5, 6) -- (0.5, 6);
+
+    % Points de soudure des boites
+    \fill[black] (1, 2) circle (0.065cm);
+    \fill[black] (2, 2) circle (0.065cm);
+    \fill[black] (1.5, 3) circle (0.065cm);
+    \fill[black] (4, 3) circle (0.065cm);
+    \fill[black] (2.5, 4) circle (0.065cm);
+    \fill[black] (4, 2) circle (0.065cm);
+    \fill[black] (1.5, 4) circle (0.065cm);
+    \fill[black] (1.25, 5) circle (0.065cm);
+    \fill[black] (2, 5) circle (0.065cm);
+    \fill[black] (2.75, 5) circle (0.065cm);
+    \fill[black] (4, 6) circle (0.065cm);
+    \fill[black] (1, 6) circle (0.065cm);
+    \fill[black] (3, 6) circle (0.065cm);
+    \fill[black] (1, 7) circle (0.065cm);
+    \fill[black] (3.5, 7) circle (0.065cm);
+
+    % Fils du PRO
+    \draw[Profils] (1, 0.5) -- (1, 2);
+    \draw[Profils] (2, 0.5) -- (2, 2);
+    \draw[Profils] (3, 0.5) -- (3, 3.5) -- (2.5, 3.5) -- (2.5, 4);
+    \draw[Profils] (4, 0.5) -- (4, 2);
+
+    \draw[Profils] (1.5, 3) -- (1.5, 4);
+    \draw[Profils] (4, 3) -- (4, 6);
+
+    \draw[Profils] (1.25, 5) -- (1.25, 5.5) -- (1, 5.5) -- (1, 6);
+    \draw[Profils] (2.75, 5) -- (2.75, 5.5) -- (3, 5.5) -- (3, 6);
+
+
+    \draw[Profils] (1, 7) -- (1, 7.5) -- (1.25, 7.5) -- (1.25, 8.5);
+    \draw[Profils] (2, 5) -- (2, 7.5) -- (2.5, 7.5) -- (2.5, 8.5);
+    \draw[Profils] (3.5, 7) -- (3.5, 7.5) -- (3.75, 7.5) -- (3.75, 8.5);
+
+    % Entrées du PRO
+    \fill[black] (1, 0.5) circle (0.15cm);
+    \draw (1, 0.5) node[below] {$i_1$};
+    \fill[black] (2, 0.5) circle (0.15cm);
+    \draw (2, 0.5) node[below] {$i_2$};
+    \fill[black] (3, 0.5) circle (0.15cm);
+    \draw (3, 0.5) node[below] {$i_3$};
+    \fill[black] (4, 0.5) circle (0.15cm);
+    \draw (4, 0.5) node[below] {$i_4$};
+
+    % Sorties du PRO
+    \fill[black] (1.25, 8.5) circle (0.15cm);
+    \draw (1.25, 8.5) node[above] {$o_1$};
+    \fill[black] (2.5, 8.5) circle (0.15cm);
+    \draw (2.5, 8.5) node[above] {$o_2$};
+    \fill[black] (3.75, 8.5) circle (0.15cm);
+    \draw (3.75, 8.5) node[above] {$o_3$};
+  \end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{tabular}{|p{\textwidth}}
 \bigskip
+
+Prographe avec \\
+quatre entrées ($i_1$, $i_2$, $i_3$ et $i_4$) et \\
+trois sorties ($o_1$, $o_2$ et $o_3$)
+
+\bigskip
+
+Le prographe contient \\
+2 boites avec une entrée et une sortie, \\
+2 boites avec deux entrées et une sortie, \\
+1 boite avec deux entrées et trois sorties.
+\bigskip
+\end{tabular}
+\end{minipage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \section{Contexte}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -367,28 +482,29 @@ même domaine.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Méthodologie}
-L'une des questions préliminaires au problème soumis consiste à obtenir
-un moyen de coder les prographes qui soit adapté à l'extraction
-d'informations pour leur dénombrement. Une piste prometteuse pour cela
-consiste à s'inspirer des outils de génération combinatoire déjà
-disponibles dans le logiciel \texttt{Sage}~\cite{Sage} comme la construction
-\texttt{SearchForest} développée par Nicolas Borie. Écrire un programme
-qui accepte en entrée un ensemble de générateurs $\Gen$, et génère ainsi
-tous les prographes sur $\Gen$ d'un degré fixé et ayant des arités
-d'entrée et de sortie données, constituera un outil de base pour ce travail.
 
-En effet, l'obtention de données énumératives par le biais
-d'expérimentations informatiques nous semble être une stratégie efficace
-pour regrouper des informations sur les prographes. Les suites d'entiers
-qui dénombrent les prographes selon certaines de leurs caractéristiques,
-obtenues par ce procédé, peuvent être recoupées avec les informations
-de l'{\em Encyclopédie en ligne des suites de nombres entiers}~\cite{Slo}.
-Cette approche permet, dans un premier temps, de conjecturer des formules
-explicites pour l'énumération de prographes. De plus, si les suites
-d'entiers obtenues par ces expérimentations vérifient des récurrences,
-celles-ci nous offriront des pistes sur la bonne manière d'appréhender les
-prographes en terme d'assemblages ou de désassemblages d'objets.
+%% \section{Méthodologie}
+%% L'une des questions préliminaires au problème soumis consiste à obtenir
+%% un moyen de coder les prographes qui soit adapté à l'extraction
+%% d'informations pour leur dénombrement. Une piste prometteuse pour cela
+%% consiste à s'inspirer des outils de génération combinatoire déjà
+%% disponibles dans le logiciel \texttt{Sage}~\cite{Sage} comme la construction
+%% \texttt{SearchForest} développée par Nicolas Borie. Écrire un programme
+%% qui accepte en entrée un ensemble de générateurs $\Gen$, et génère ainsi
+%% tous les prographes sur $\Gen$ d'un degré fixé et ayant des arités
+%% d'entrée et de sortie données, constituera un outil de base pour ce travail.
+
+%% En effet, l'obtention de données énumératives par le biais
+%% d'expérimentations informatiques nous semble être une stratégie efficace
+%% pour regrouper des informations sur les prographes. Les suites d'entiers
+%% qui dénombrent les prographes selon certaines de leurs caractéristiques,
+%% obtenues par ce procédé, peuvent être recoupées avec les informations
+%% de l'{\em Encyclopédie en ligne des suites de nombres entiers}~\cite{Slo}.
+%% Cette approche permet, dans un premier temps, de conjecturer des formules
+%% explicites pour l'énumération de prographes. De plus, si les suites
+%% d'entiers obtenues par ces expérimentations vérifient des récurrences,
+%% celles-ci nous offriront des pistes sur la bonne manière d'appréhender les
+%% prographes en terme d'assemblages ou de désassemblages d'objets.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
