@@ -108,7 +108,7 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
 \begin{tabular}{|m{5.5cm}|m{11.6cm}|} \hline
     Nom du porteur du projet & Samuele Giraudo (M.C.F. LIGM - UMR 8049)
         \\ \hline
-    Adresse e-mail du porteur & samuele.giraudo@univ-mlv.fr \\ \hline
+    Adresse e-mail du porteur & {\tt samuele.giraudo@u-pem.fr} \\ \hline
     Titre long du projet & Pr{\bf o}priétés {\bf c}ombinatoires et
     {\bf a}lgébriques des {\bf P}ROs l{\bf i}bres\\ \hline
     Acronyme du projet & OCAPI \\ \hline
@@ -121,17 +121,19 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
     sont des assemblages plans de boites ayant plusieurs entrées et
     plusieurs sorties. Ces objets combinatoires généralisent un grand
     nombre de structures discrètes bien connues comme les arbres (une
-    seule sortie pour chaque noeud), les permutations ou encore les
+    seule sortie pour chaque n\oe ud), les permutations ou encore les
     opérades. Toutefois, les prographes sont aujourd'hui peu
-    connus. Notamment, comme l'objet est plan, déterminer la structure
-    de données à utiliser en machine pour une génération exhaustive et
-    efficace est déjà un défi intéressant. Suivant le statut
-    considéré pour les boites, les prographes donnent des applications
-    en calcul symbolique (les boites sont des opérateurs algébriques),
-    en théorie des graphes et des flots (les boites dont les noeuds
-    d'un réseau) ou encore en logique (les boites sont conditions
-    paramétrées). Le projet OCAPI propose une étude combinatoire et
-    algébrique des prographes libres.
+    connus. Notamment, comme il s'agit d'objets plans, déterminer la
+    structure de données à utiliser en machine pour une génération 
+    exhaustive et efficace est déjà un défi intéressant. Suivant le 
+    statut considéré pour les boites, les prographes permettent de modéliser 
+    des situations propres au calcul symbolique (les boites sont des 
+    opérateurs algébriques), à la théorie des graphes et des flots (les 
+    boites dont les n\oe uds d'un réseau) ou encore en électronique (les 
+    boites sont des portes logiques). D'un point de vue algébriques,
+    les prographes sont les éléments d'une structure algébrique connue 
+    sous le nom de PRO libre. Le projet OCAPI propose une étude combinatoire 
+    et algébrique des prographes.
     %% Les prographes
     %% sont des assemblages plans d'opérateurs ayant possiblement plusieurs
     %% entrées et plusieurs sorties. Ces objets combinatoires généralisent
@@ -156,11 +158,12 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
     \bf{Nom partenaire} & \bf{Qualité/} & \bf{e-mail partenaire}
         & \bf{Unité de} \\
     & \bf{Titre} &  & \bf{recherche} \\ \hline
-    Nicolas Borie & M.C.F. & nicolas.borie@u-pem.fr
+    Nicolas Borie & M.C.F. & {\tt nicolas.borie@u-pem.fr}
         & LIGM - UMR 8049 \\ \hline
-    Jean-Paul Bultel & Docteur & jean-paul.bultel@univ-rouen.fr
+    Jean-Paul Bultel & Docteur & {\tt jean-paul.bultel@univ-rouen.fr}
         & LITIS - EA 4108 \\ \hline
-  Matthieu Josuat-Vergès \qquad & C.R.2 & matthieu.josuat-verges@u-pem.fr \qquad
+  Matthieu Josuat-Vergès \qquad & C.R.2 & {\tt matthieu.josuat-verges@u-pem.fr}
+   \qquad
     & LIGM - UMR 8049 \qquad \\ \hline
 \end{tabular}
 \bigskip
@@ -171,19 +174,19 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
 %%                  UN JOLI PRO STYLE CIRCUIT IMPRIMÉ                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{minipage}{0.45\textwidth}
+\begin{figure}[ht]
   \centering
   \begin{tikzpicture}[yscale=0.6, xscale=0.8]
     \tikzstyle{Boite} = [very thick]
     \tikzstyle{Profils} = [thick]
 
-    % Cadre autour du PRO
+    % Cadre autour du PROgraphe
     \draw (0, 1) -- (5, 1);
     \draw (0, 1) -- (0, 8);
     \draw (5, 1) -- (5, 8);
     \draw (0, 8) -- (5, 8);
     
-    % Opérateurs boites du PRO
+    % Opérateurs boites du PROgraphe
     \draw[Boite] (3.5, 2) -- (3.5, 3) -- (4.5, 3) -- (4.5, 2) -- (3.5, 2);
     \draw[Boite] (0.5, 2) -- (0.5, 3) -- (2.5, 3) -- (2.5, 2) -- (0.5, 2);
 
@@ -209,7 +212,7 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
     \fill[black] (1, 7) circle (0.065cm);
     \fill[black] (3.5, 7) circle (0.065cm);
 
-    % Fils du PRO
+    % Fils du PROgraphe
     \draw[Profils] (1, 0.5) -- (1, 2);
     \draw[Profils] (2, 0.5) -- (2, 2);
     \draw[Profils] (3, 0.5) -- (3, 3.5) -- (2.5, 3.5) -- (2.5, 4);
@@ -226,43 +229,32 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
     \draw[Profils] (2, 5) -- (2, 7.5) -- (2.5, 7.5) -- (2.5, 8.5);
     \draw[Profils] (3.5, 7) -- (3.5, 7.5) -- (3.75, 7.5) -- (3.75, 8.5);
 
-    % Entrées du PRO
+    % Entrées du PROgraphe
     \fill[black] (1, 0.5) circle (0.15cm);
-    \draw (1, 0.5) node[below] {$i_1$};
+    \draw (1, 0.5) node[below] {$e_1$};
     \fill[black] (2, 0.5) circle (0.15cm);
-    \draw (2, 0.5) node[below] {$i_2$};
+    \draw (2, 0.5) node[below] {$e_2$};
     \fill[black] (3, 0.5) circle (0.15cm);
-    \draw (3, 0.5) node[below] {$i_3$};
+    \draw (3, 0.5) node[below] {$e_3$};
     \fill[black] (4, 0.5) circle (0.15cm);
-    \draw (4, 0.5) node[below] {$i_4$};
+    \draw (4, 0.5) node[below] {$e_4$};
 
-    % Sorties du PRO
+    % Sorties du PROgraphe
     \fill[black] (1.25, 8.5) circle (0.15cm);
-    \draw (1.25, 8.5) node[above] {$o_1$};
+    \draw (1.25, 8.5) node[above] {$s_1$};
     \fill[black] (2.5, 8.5) circle (0.15cm);
-    \draw (2.5, 8.5) node[above] {$o_2$};
+    \draw (2.5, 8.5) node[above] {$s_2$};
     \fill[black] (3.75, 8.5) circle (0.15cm);
-    \draw (3.75, 8.5) node[above] {$o_3$};
+    \draw (3.75, 8.5) node[above] {$s_3$};
   \end{tikzpicture}
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\textwidth}
-\begin{tabular}{|p{\textwidth}}
-\bigskip
-
-Prographe avec \\
-quatre entrées ($i_1$, $i_2$, $i_3$ et $i_4$) et \\
-trois sorties ($o_1$, $o_2$ et $o_3$)
-
-\bigskip
-
-Le prographe contient \\
-2 boites avec une entrée et une sortie, \\
-2 boites avec deux entrées et une sortie, \\
-1 boite avec deux entrées et trois sorties.
-\bigskip
-\end{tabular}
-\end{minipage}
+    
+    \caption{Un prographe constitué de quatre entrées
+     $e_1$, $e_2$, $e_3$ et $e_4$ et de trois sorties $s_1$, $s_2$ et 
+     $s_3$. Il contient deux boites atomiques ayant une entrée et une 
+     sortie, deux boites atomiques ayant deux entrées et une sortie et 
+     une boite atomique ayant deux entrées et trois sorties.}
+    \label{fig:exemple_prographe_circuit}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
