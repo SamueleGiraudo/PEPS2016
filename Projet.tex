@@ -94,18 +94,20 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-% \maketitle
-
+\begin{center}
 \begin{tabular}{|>{\centering\arraybackslash}m{5.5cm}|>
-    {\centering\arraybackslash}m{11.6cm}|} \hline
+    {\centering\arraybackslash}m{9.6cm}|} \hline
     \includegraphics{logo_CNRS.jpg} & \Large{APPEL A PROJETS} \\
     INS2I - 2016 & \Large{JCJC INS2I 2016} \\ \hline
 \end{tabular}
+\end{center}
 \bigskip
 
 \Large{\bf{Identification}}
 
-\begin{tabular}{|m{5.5cm}|m{11.6cm}|} \hline
+\begin{center}
+\begin{small}
+\begin{tabular}{|m{5.5cm}|m{9.6cm}|} \hline
     Nom du porteur du projet & Samuele Giraudo (M.C.F. LIGM - UMR 8049)
         \\ \hline
     Adresse e-mail du porteur & {\tt samuele.giraudo@u-pem.fr} \\ \hline
@@ -113,33 +115,36 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
     {\bf a}lgébriques des {\bf P}ROs l{\bf i}bres\\ \hline
     Acronyme du projet & OCAPI \\ \hline
 \end{tabular}
+\end{small}
+\end{center}
 \bigskip
 
 \Large{\bf{Résumé du projet}}
 
 \fbox{\parbox{\linewidth-8\fboxrule-8\fboxsep}{Les prographes
-    sont des assemblages plans de boites ayant plusieurs entrées et
+    sont des assemblages plans de composants ayant plusieurs entrées et
     plusieurs sorties. Ces objets combinatoires généralisent un grand
-    nombre de structures discrètes bien connues comme les arbres (une
-    seule sortie pour chaque n\oe ud), les permutations ou encore les
-    opérades. Toutefois, les prographes sont aujourd'hui peu
-    connus. Notamment, comme il s'agit d'objets plans, déterminer la
-    structure de données à utiliser en machine pour une génération 
-    exhaustive et efficace est déjà un défi intéressant. Suivant le 
-    statut considéré pour les boites, les prographes permettent de modéliser 
-    des situations propres au calcul symbolique (les boites sont des 
+    nombre de structures discrètes bien connues comme les arbres où chaque
+    composant dispose d'une sortie unique, les permutations, les cartes 
+    ou encore les opérades. Les prographes demeurent encore des objets
+    peu étudiés. Comme il s'agit d'objets plans, déterminer la structure 
+    de données à utiliser en machine pour leur génération exhaustive et 
+    efficace est déjà un défi intéressant. Suivant le statut considéré 
+    pour les composants, les prographes permettent de modéliser des 
+    situations propres au calcul symbolique (les composants sont des 
     opérateurs algébriques), à la théorie des graphes et des flots (les 
-    boites dont les n\oe uds d'un réseau) ou encore en électronique (les 
-    boites sont des portes logiques). D'un point de vue algébriques,
-    les prographes sont les éléments d'une structure algébrique connue 
-    sous le nom de PRO libre. Le projet OCAPI propose une étude combinatoire 
-    et algébrique des prographes.
+    composants sont les n\oe uds d'un réseau) ou encore à l'électronique. 
+    D'un point de vue algébrique, les prographes sont les éléments d'une
+    structure connue sous le nom de PRO libre. Le projet OCAPI propose 
+    une étude combinatoire et algébrique des prographes.
 }}
 \bigskip
 
 \Large{\bf{Autres membres du projet}}
 
-\begin{tabular}{|l|c|l|c|} \hline
+\begin{center}
+\begin{small}
+\begin{tabular}{|l|c|l|c|}\hline
     \bf{Nom partenaire} & \bf{Qualité/} & \bf{e-mail partenaire}
         & \bf{Unité de} \\
     & \bf{Titre} &  & \bf{recherche} \\ \hline
@@ -151,10 +156,11 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
    \qquad
     & LIGM - UMR 8049 \qquad \\ \hline
 \end{tabular}
+\end{small}
+\end{center}
 \bigskip
 
 \Large{\bf{Description du projet}}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -176,7 +182,7 @@ réaliser des calculs. De plus, en s'autorisant la manipulation de
 paramètres, ils permettent de modéliser des relations vérifiées par 
 des opérations. Par exemple, la relation d'associativité 
 $(x \cdot y) \cdot z = x \cdot (y \cdot z)$ d'un opérateur binaire 
-$\cdot$ se traduit en l'égalité des deux arbres syntaxiques
+$\cdot$ se traduit en l'identification d'arbres syntaxiques
 \begin{equation}
     \begin{split}
     \begin{tikzpicture}[xscale=.24,yscale=.15]
@@ -214,7 +220,7 @@ $\cdot$ se traduit en l'égalité des deux arbres syntaxiques
 Les opérades~\cite{Mar08,LV12} sont des structures offrant une vision 
 algébrique des arbres syntaxiques. Les éléments d'une opérade sont en 
 effet des opérateurs et dans une opérade, il est possible de composer 
-deux opérateurs pour en construire un plus gros. Au même titre que les 
+deux opérateurs pour en construire de plus gros. Au même titre que les 
 monoïdes libres peuvent être étudiés par le biais de la combinatoire des 
 mots, les opérades libres peuvent l'être par la combinatoire des arbres.
 
@@ -237,14 +243,14 @@ expressions ayant exactement une sortie. Des expressions dans des
 algèbres de Hopf, qui disposent d'un coproduit, une opération à une 
 entrée et deux sorties, ne peuvent ainsi pas être modélisées par ces 
 arbres syntaxiques. Il est ainsi naturel de considérer des structures
-syntaxiques qui ne sont plus des arbres mais plutôt des graphes orienté, 
+syntaxiques qui ne sont plus des arbres mais plutôt des graphes orientés, 
 où les n\oe uds internes disposent potentiellement de plusieurs entrées 
 et de plusieurs sorties.
 
-À titre d'exemple, la relation entre le produit $\cdot$ et le coproduit
-$\Delta$ d'une algèbre de Hopf s'écrit 
+À titre d'exemple, la relation axiomatique entre le produit $\cdot$ et 
+le coproduit $\Delta$ d'une algèbre de Hopf s'écrit 
 $\Delta(x \cdot y) = \Delta(x) \cdot \Delta(y)$ et celle-ci se traduit 
-en l'égalité entre les deux arbres syntaxiques généralisés
+en l'identification d'arbres syntaxiques généralisés
 \begin{equation}
     \begin{split}
     \begin{tikzpicture}[xscale=.24,yscale=.19]
@@ -286,7 +292,7 @@ en l'égalité entre les deux arbres syntaxiques généralisés
 
 Les PROs ({\em product category}) sont des structures algébriques 
 introduites par Mac Lane~\cite{McL65} (de manière surprenante 
-historiquement avant les opérades), généralisent les opérades et 
+historiquement avant les opérades) qui généralisent les opérades et 
 permettent de décrire les algèbres de Hopf ainsi que d'autres structures
 algébriques encore plus complexes. Un PRO est ainsi un ensemble 
 d'opérateurs à un nombre arbitraire d'entrées et de sorties, que l'on 
@@ -300,7 +306,7 @@ La figure~\ref{fig:exemple_prographe} donne un exemple d'un tel objet.
     \centering
     \begin{equation*}\footnotesize
         \begin{split}
-        \begin{tikzpicture}[xscale=.24,yscale=.19]
+        \begin{tikzpicture}[xscale=.24,yscale=.21]
             \node[Feuille](S1)at(2,0){};
             \node[Feuille](S2)at(4,0){};
             \node[Feuille](S3)at(5,0){};
@@ -380,7 +386,10 @@ questions. Voici les directions principales~:
     \item \label{item:objectif_denombrement}
     étant donné un ensemble d'opérateurs disposant de plusieurs entrées 
     et de plusieurs sorties, nous souhaitons dénombrer les prographes 
-    sur ces opérateurs en fonction du nombre d'opérateurs utilisés~;
+    sur ces opérateurs en fonction du nombre d'opérateurs utilisés. Cette
+    question semble pouvoir se traiter d'un point de vue combinatoire en 
+    utilisant et/ou généralisant des résultats sur les empilements de 
+    pièces de Viennot~\cite{Vie86}~;
     
     \item \label{item:objectif_modelisation}
     nous souhaitons mesurer l'expressivité des prographes au sens 
@@ -390,9 +399,9 @@ questions. Voici les directions principales~:
     forte. Comme les prographes généralisent les arbres, nous pouvons
     nous attendre à pouvoir exprimer, par des prographes, de nouveaux
     objets et phénomènes. Cet axe de recherche consiste à délimiter cette 
-    zone. À titre d'exemple, un prographe permet de modéliser de manière
-    évidente des circuits électroniques (voir 
-    figure~\ref{fig:exemple_prographe_circuit})
+    zone d'expressivité. À titre d'exemple, un prographe permet de 
+    modéliser de manière évidente des circuits électroniques (voir 
+    la figure~\ref{fig:exemple_prographe_circuit})
     \begin{figure}[ht]
         \centering
         \begin{tikzpicture}[yscale=0.5, xscale=0.7]
@@ -468,31 +477,35 @@ questions. Voici les directions principales~:
     \label{fig:exemple_prographe_circuit}
     \end{figure}
     et nous souhaitons savoir ce que cette vision combinatoire et 
-    algébrique des circuit peut apporter~;
+    algébrique des circuits peut apporter~;
     
     \item \label{item:objectif_groupes}
     les PROs permettent de travailler avec {\em tous} les groupes 
     symétriques à la fois, au sens où il existe un PRO 
     (voir~\cite{Laf03,Laf13}) qui modélise les permutations (de toutes 
-    tailles) et leurs compositions. En un certain sens, ce PRO contient 
+    tailles) et leurs compositions. En un certain sens, ce PRO renferme
     toute la combinatoire de tous  les groupes symétriques. La question 
-    de savoir s'il existe d'autres groupes subissant un tel traitement 
-    et de savoir ce que cette vision peut apporter nous intéresse~;
+    de savoir s'il existe d'autres groupes subissant un tel traitement
+    (comme les groupes de Coxeter ou les groupes de tresses) et de 
+    savoir ce que cette vision peut apporter nous intéresse~;
     
     \item \label{item:objectif_cartes}
     les prographes peuvent être décrits comme des cartes soumises à 
     certaines conditions. À l'inverse, il est possible de coder certaines
     cartes par des prographes, eux-même soumis à certaines restrictions.
-    Nous espérons dans ce projet une interaction riche et nouvelle entre 
-    la théorie des cartes et la théorie des PROs. Il semble d'une part 
-    pouvoir être possible d'utiliser certains résultats énumératifs des 
-    cartes pour le dénombrement des prographes et certains résultats 
+    Nous espérons dans ce projet créer une interaction riche et nouvelle 
+    entre la théorie des cartes et la théorie des PROs. Il semble d'une 
+    part pouvoir être possible d'utiliser certains résultats énumératifs 
+    des cartes pour le dénombrement des prographes et certains résultats 
     algébriques des PROs en théorie des cartes.
 \end{enumerate}
 
-Nous espérons, à l'issue de la réalisation de ce projet, soumettre un 
-article à un journal de combinatoire algébrique ainsi qu'un article à 
-une conférence du même domaine.
+Ces axes de recherche étant variés, nous espérons à l'issue de 
+l'exploration de quelques-unes de ces questions, soumettre un article à 
+un journal de combinatoire algébrique ainsi qu'un article à une 
+conférence du même domaine. Si les résultats et la direction prise
+par notre recherche nous le permet, il nous sera envisageable de soumettre
+certains résultats à un journal d'informatique théorique.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -500,12 +513,12 @@ une conférence du même domaine.
 \section{Résultats partiels et observations}
 Dans un travail récent~\cite{BG14}, certains des membres de ce projet 
 ont établi des résultats partiels pour 
-l'axe~\eqref{item:objectif_denombrement}, lorsque un unique opérateur 
+l'axe~\eqref{item:objectif_denombrement} lorsque un unique opérateur 
 ayant le même nombre d'entrées et de sorties est autorisé. Ce résultat 
 s'appuie sur le {\em lemme d'inversion} de Viennot~\cite{Vie86},
 introduit dans le contexte du dénombrement d'empilements de pièces. 
 
-Nous présentons ici quelques résultats expérimentaux.
+Listons à présent quelques résultats expérimentaux.
 
 \TODO{Insérer ici les résultats et observations de Nicolas.}
 
