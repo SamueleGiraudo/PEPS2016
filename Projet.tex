@@ -27,6 +27,7 @@ pagebackref=false]{hyperref}
 \usepackage{textcomp} % symbole euro
 \usepackage{calc} % encadrement de texte
 \usepackage{array} % fixer la taille des colonnes
+\usepackage{enumitem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,22 +122,21 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
 
 \Large{\bf{Résumé du projet}}
 
+% ATTENTION : 10 lignes au maximum sont autorisées !
 \fbox{\parbox{\linewidth-8\fboxrule-8\fboxsep}{Les prographes
     sont des assemblages plans de composants ayant plusieurs entrées et
-    plusieurs sorties. Ces objets combinatoires généralisent un grand
-    nombre de structures discrètes bien connues comme les arbres où chaque
-    composant dispose d'une sortie unique, les permutations, les cartes 
-    ou encore les opérades. Les prographes demeurent encore des objets
-    peu étudiés. Comme il s'agit d'objets plans, déterminer la structure 
-    de données à utiliser en machine pour leur génération exhaustive et 
-    efficace est déjà un défi intéressant. Suivant le statut considéré 
-    pour les composants, les prographes permettent de modéliser des 
-    situations propres au calcul symbolique (les composants sont des 
-    opérateurs algébriques), à la théorie des graphes et des flots (les 
-    composants sont les n\oe uds d'un réseau) ou encore à l'électronique. 
-    D'un point de vue algébrique, les prographes sont les éléments d'une
-    structure connue sous le nom de PRO libre. Le projet OCAPI propose 
-    une étude combinatoire et algébrique des prographes.
+    sorties. Suivant la nature de ses composants, un prographe permet de 
+    modéliser une expression en calcul symbolique (les composants sont 
+    des opérateurs algébriques), un graphe (les composants sont des 
+    sommets) ou encore un circuit électronique. Ces objets combinatoires
+    généralisent un bon nombre de structures discrètes comme les arbres 
+    où chaque composant dispose d'une unique sortie, les permutations, 
+    les cartes et les opérades mais sont encore des structures peu 
+    étudiées. Par exemple, la conception d'un algorithme efficace pour 
+    leur génération exhaustive est déjà un défi. D'un point de vue 
+    algébrique, les prographes sont les éléments d'une structure connue 
+    sous le nom de PRO libre. Ce projet propose une étude à la fois 
+    combinatoire et algébrique des prographes.
 }}
 \bigskip
 
@@ -382,7 +382,7 @@ Toute la recherche prévue par ce projet porte sur la compréhension des
 prographes. Nous souhaitons utiliser ces objets à la fois pour modéliser 
 des phénomènes déjà explorés et connus et pour se poser de nouvelles 
 questions. Voici les directions principales~:
-\begin{enumerate}
+\begin{enumerate}[fullwidth,label={\bf (\arabic*)}]
     \item \label{item:objectif_denombrement}
     étant donné un ensemble d'opérateurs disposant de plusieurs entrées 
     et de plusieurs sorties, nous souhaitons dénombrer les prographes 
@@ -529,9 +529,9 @@ Listons à présent quelques résultats expérimentaux.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Membres du projet}
 Nous décrivons ici la constitution de l'équipe du projet et expliquons
-en quoi elle nous semble adaptée. Le domaine de recherche des
-quatre membres s'inscrit en combinatoire algébrique~; chacun possède
-néanmoins ses spécialités.
+en quoi elle nous semble adaptée. Le domaine de recherche des quatre 
+membres s'inscrit en combinatoire algébrique~; chacun possède néanmoins 
+ses spécialités.
 
 Le projet est porté par {\bf Samuele Giraudo}
 (\url{http://igm.univ-mlv.fr/~giraudo/}). Il a effectué sa thèse à
@@ -539,14 +539,13 @@ l'université Paris-Est Marne-la-Vallée au LIGM sous la direction de
 Jean-Christophe Novelli et Florent Hivert, soutenue le 8 décembre 2011.
 Il occupe depuis 2012 un poste de maître de conférences en informatique
 au LIGM dans l'équipe combinatoire algébrique et calcul symbolique. Son
-domaine principal est la théorie des opérades. Il a notamment
-obtenu dans ce contexte une construction générale d'opérades à partir de
-monoïdes~\cite{Gir15} et un moyen de comprendre les propriétés d'une
-opérade en la voyant comme une certaine opérade colorée~\cite{CG14}. Ce
-membre a travaillé et obtenu des résultats sur les PROs~\cite{BG14}.
-Étant donné que la plupart des notions connues sur les opérades peuvent
-se généraliser aux PROs, ses connaissances sur les opérades pourront être
-utiles dans ce travail.
+domaine principal est la théorie des opérades. Il a présenté
+une construction générale d'opérades à partir de monoïdes~\cite{Gir15} 
+et un moyen de comprendre les propriétés d'une opérade en la voyant 
+comme une certaine opérade colorée~\cite{CG14}. Ce membre a aussi obtenu 
+des résultats sur les PROs~\cite{BG14}. Étant donné que la plupart des 
+notions connues sur les opérades peuvent se généraliser aux PROs, ses
+connaissances sur les opérades pourront être utiles dans ce travail.
 
 {\bf Nicolas Borie} (\url{http://www-igm.univ-mlv.fr/~borie/}) a effectué
 sa thèse à l'université Paris-Sud XI au LRI sous la direction de Nicolas
@@ -564,8 +563,8 @@ parmi les membres de ce groupe.
 
 {\bf Jean-Paul Bultel} a effectué sa thèse à l'université Paris-Est
 Marne-la-Vallée au LIGM sous la direction de Jean-Yves Thibon, soutenue
-le 25 novembre 2011. Il est actuellement membre associé au LIGM et au
-LITIS (Université de Rouen). Ce membre a déjà travaillé et obtenu des
+le 25 novembre 2011. Il est actuellement membre associé au LITIS 
+(Université de Rouen). Ce membre a déjà travaillé et obtenu des
 résultats sur les PROs~\cite{BG14}. Son domaine principal est la théorie
 des algèbres de Hopf combinatoires (voir~\cite{Bul11}). Ses connaissances
 des structures algébriques sur des opérateurs à plusieurs entrées et
@@ -588,48 +587,48 @@ connaissances en combinatoire vont potentiellement pouvoir mettre en
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Budget}
 Le budget demandé est 14000\texteuro. Voici sa répartition.
+\smallskip
 
-\begin{itemize}
-    \item {\bf Matériel}~: 6750\texteuro.
-    \begin{itemize}
-        \item {\em Livres}~: 750\texteuro.
-        Il s'agit de livres spécialisés au coût parfois élevé~: nous
-        fixons le prix moyen à 75\texteuro, le montant correspond donc
-        à une dizaine de livres. L'idée est de constituer une petite
-        \og bibliothèque \fg{} accessible à tous les membres du projet.
+{\bf Matériel}~: 6750\texteuro.
+\begin{itemize}[fullwidth]
+    \item {\em Livres}~: 750\texteuro.
+    Il s'agit de livres spécialisés au coût parfois élevé~: nous
+    fixons le prix moyen à 75\texteuro, le montant correspond donc
+    à une dizaine de livres. L'idée est de constituer une petite
+    \og bibliothèque \fg{} accessible à tous les membres du projet.
 
-        \item {\em Ordinateurs}~: 6000\texteuro.
-        Il s'agit de renouveler du matériel vieillissant.
-        L'expérimentation par le calcul formel est cruciale dans ce
-        projet et nécessite des ordinateurs avec des capacités de calcul
-        raisonnables. Nous prévoyons une machine par membre du projet à
-        1500\texteuro{} chacune, soit 6000\texteuro{} (par exemple~:
-        deux portables et deux fixes).
+    \item {\em Ordinateurs}~: 6000\texteuro.
+    Il s'agit de renouveler du matériel vieillissant.
+    L'expérimentation par le calcul formel est cruciale dans ce
+    projet et nécessite des ordinateurs avec des capacités de calcul
+    raisonnables. Nous prévoyons une machine par membre du projet à
+    1500\texteuro{} chacune, soit 6000\texteuro{} (par exemple~:
+    deux portables et deux fixes).
 
-        \item {\em Autres.}
-        Le budget non dépensé sur les deux points précédents servira
-        éventuellement à du petit matériel: tablettes, clés USB, {\em etc.}
-    \end{itemize}
+    \item {\em Autres.}
+    Le budget non dépensé sur les deux points précédents servira
+    éventuellement à du petit matériel: tablettes, clés USB, {\em etc.}
+\end{itemize}
+\smallskip
+    
+{\bf Missions~:} 7250\texteuro.
+\begin{itemize}[fullwidth]
+    \item {\em Conférences internationales}~: 5550\texteuro.
+    Cette partie du budget aidera les participants à participer aux
+    conférences du domaine (FPSAC, Séminaire Lotharingien de
+    Combinatoire, {\em etc.}). Avec 1387,50\texteuro{} par participant,
+    il s'agit d'un complément à d'autres sources de financement.
 
-    \item {\bf Missions~:} 7250\texteuro.
-    \begin{itemize}
-        \item {\em Conférences internationales}~: 5550\texteuro.
-        Cette partie du budget aidera les participants à participer aux
-        conférences du domaine (FPSAC, Séminaire Lotharingien de
-        Combinatoire, {\em etc.}). Avec 1387,50\texteuro{} par participant,
-        il s'agit d'un complément à d'autres sources de financement.
-
-        \item {\em Rencontres et séances de travail}~: 1500\texteuro.
-        Elles sont l'essence du projet. C'est le moment où nous
-        chercherons des solutions aux problèmes posés, ferons le point,
-        prendrons des décisions, {\em etc.} Nous prévoyons quatre
-        rencontres d'une journée chacune, à raison d'une rencontre par
-        trimestre. La plupart des participants étant à l'UPEM, les frais
-        sont limités pour des rencontres en région parisienne. Le budget
-        de 375\texteuro{} par rencontre servira à inviter des chercheurs
-        qui travaillent sur des thèmes similaires et qui ne sont pas
-        membres du projet, comme Frédéric Chapoton ou Loïc Foissy.
-    \end{itemize}
+    \item {\em Rencontres et séances de travail}~: 1500\texteuro.
+    Elles sont l'essence du projet. C'est le moment où nous
+    chercherons des solutions aux problèmes posés, ferons le point,
+    prendrons des décisions, {\em etc.} Nous prévoyons quatre
+    rencontres d'une journée chacune, à raison d'une rencontre par
+    trimestre. La plupart des participants étant à l'UPEM, les frais
+    sont limités pour des rencontres en région parisienne. Le budget
+    de 375\texteuro{} par rencontre servira à inviter des chercheurs
+    qui travaillent sur des thèmes similaires et qui ne sont pas
+    membres du projet, comme Frédéric Chapoton ou Loïc Foissy.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
