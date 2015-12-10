@@ -128,15 +128,15 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
     sorties. Suivant la nature de ses composants, un prographe permet de 
     modéliser une expression en calcul symbolique (les composants sont 
     des opérateurs algébriques), un graphe (les composants sont des 
-    sommets) ou encore un circuit électronique. Ces objets combinatoires
-    généralisent un bon nombre de structures discrètes comme les arbres 
-    où chaque composant dispose d'une unique sortie, les permutations, 
-    les cartes et les opérades mais sont encore des structures peu 
-    étudiées. Par exemple, la conception d'un algorithme efficace pour 
-    leur génération exhaustive est déjà un défi. D'un point de vue 
-    algébrique, les prographes sont les éléments d'une structure connue 
-    sous le nom de PRO libre. Ce projet propose une étude à la fois 
-    combinatoire et algébrique des prographes.
+    sommets), un circuit électronique, une carte, ou encore de manière
+    plus subtile, une permutation. Ces objets combinatoires généralisent 
+    ainsi un bon nombre de structures discrètes mais restent des 
+    structures peu étudiées. Par exemple, la conception d'un algorithme 
+    efficace pour leur génération exhaustive est déjà un défi. Les 
+    prographes entretiennent de fortes interactions avec l'algèbre et
+    interviennent notamment dans l'étude des opérades et des PROs. Ce 
+    projet propose une étude à la fois combinatoire et algébrique des 
+    prographes.
 }}
 \bigskip
 
@@ -177,7 +177,7 @@ l'informatique et des mathématiques car ils interviennent, par exemple,
 algèbre universelle et en théorie des opérades.
 
 Leur principal intérêt est d'offrir une représentation d'expressions 
-mélangeant valeurs et opérateurs, et de proposer un cadre cohérent pour 
+mélangeant valeurs et opérateurs et de proposer un cadre cohérent pour 
 réaliser des calculs. De plus, en s'autorisant la manipulation de 
 paramètres, ils permettent de modéliser des relations vérifiées par 
 des opérations. Par exemple, la relation d'associativité 
@@ -222,7 +222,8 @@ algébrique des arbres syntaxiques. Les éléments d'une opérade sont en
 effet des opérateurs et dans une opérade, il est possible de composer 
 deux opérateurs pour en construire de plus gros. Au même titre que les 
 monoïdes libres peuvent être étudiés par le biais de la combinatoire des 
-mots, les opérades libres peuvent l'être par la combinatoire des arbres.
+mots, les opérades libres peuvent l'être en puisant des ressources
+dans la combinatoire des arbres.
 
 Outre le fait que la théorie des opérades provient d'un contexte purement
 algébrique, elle occupe aujourd'hui une place de choix en combinatoire. 
@@ -231,7 +232,8 @@ d'en extraire des propriétés, d'obtenir des résultats énumératifs ou
 encore d'établir des bijections entre différentes familles d'objets
 combinatoires~\cite{Cha08,CG14,Gir15}. De plus, l'étude des opérades 
 fait appel à des outils combinatoires classiques, comme les séries 
-génératrices et la combinatoire de diverses familles d'arbres.
+génératrices et, comme nous l'avons déjà évoqué, la combinatoire de 
+diverses familles d'arbres.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -240,9 +242,9 @@ Les arbres syntaxiques classiques --- et de ce fait leurs pendants
 algébriques que sont les opérades --- font preuve d'une limitation 
 essentielle. Ils permettent seulement de modéliser des opérations et des
 expressions ayant exactement une sortie. Des expressions dans des 
-algèbres de Hopf, qui disposent d'un coproduit, une opération à une 
-entrée et deux sorties, ne peuvent ainsi pas être modélisées par ces 
-arbres syntaxiques. Il est ainsi naturel de considérer des structures
+algèbres de Hopf~\cite{GR14}, qui disposent d'un coproduit, une opération 
+à une entrée et deux sorties, ne peuvent ainsi pas être modélisées par 
+ces arbres syntaxiques. Il est ainsi naturel de considérer des structures
 syntaxiques qui ne sont plus des arbres mais plutôt des graphes orientés, 
 où les n\oe uds internes disposent potentiellement de plusieurs entrées 
 et de plusieurs sorties.
@@ -368,7 +370,7 @@ La figure~\ref{fig:exemple_prographe} donne un exemple d'un tel objet.
     \end{equation*}
     \caption{Un prographe sur des opérateurs ${\tt a}$, ${\tt b}$ 
     et ${\tt c}$ ayant respectivement deux entrées et deux sorties, 
-    deux entrées et une sortie, et trois entrées et une sortie.
+    trois entrées et une sortie, et trois entrées et une sortie.
     Ce prographe code lui-même une opération ayant treize entrées
     et neuf sorties.}
     \label{fig:exemple_prographe}
@@ -379,9 +381,9 @@ La figure~\ref{fig:exemple_prographe} donne un exemple d'un tel objet.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Questions et objectifs}
 Toute la recherche prévue par ce projet porte sur la compréhension des 
-prographes. Nous souhaitons utiliser ces objets à la fois pour modéliser 
-des phénomènes déjà explorés et connus et pour se poser de nouvelles 
-questions. Voici les directions principales~:
+prographes. Nous souhaitons utiliser ces objets en tant qu'outils pour 
+modéliser des phénomènes déjà explorés ainsi qu'étudier les prographes 
+de manière algébrique et combinatoire. Voici les directions principales~:
 \begin{enumerate}[fullwidth,label={\bf (\arabic*)}]
     \item \label{item:objectif_denombrement}
     étant donné un ensemble d'opérateurs disposant de plusieurs entrées 
