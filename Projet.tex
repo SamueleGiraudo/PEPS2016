@@ -520,11 +520,129 @@ ayant le même nombre d'entrées et de sorties est autorisé. Ce résultat
 s'appuie sur le {\em lemme d'inversion} de Viennot~\cite{Vie86},
 introduit dans le contexte du dénombrement d'empilements de pièces. 
 
-Listons à présent quelques résultats expérimentaux.
+%% Listons à présent quelques résultats expérimentaux.
 
-\TODO{Insérer ici les résultats et observations de Nicolas.}
+Les quelques cas particuliers que nous avons regardés semblent
+systématiquement indiqué que les PROs contiennent une combinatoire
+remarquable. Le nombre de PROs libre contenant $2n$ opérateurs parmi
+un produit et un coproduit et ayant une seule entrée et une seule
+sortie semblent compté par les nombres de Catalan tri-dimensionnel :
+$1, 5, 42, 462, 6006, \dots$, ainsi on remarque que la construction
+généralise les arbres binaires classiques compté par Catalan.
+\begin{footnotesize}
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}[scale=0.3]
+            \tikzstyle{prod} = [draw, fill=blue!20, minimum size=1em]
+            \tikzstyle{coprod} = [draw, fill=red!20, minimum size=1em]
+            \tikzstyle{edg} = [thick]
 
-\TODO{Compléter.}
+            %% PREMIER
+            \draw[edg] (0,0) -- (0,1);
+            \draw[edg] (0,1) -- (1,2);
+            \draw[edg] (0,1) -- (-1,2);
+            \draw (0,1) node[coprod] {c};
+
+            \draw[edg] (1,2) -- (0,3);
+            \draw[edg] (-1,2) -- (0,3);
+            \draw[edg] (0,3) -- (0,4);
+            \draw (0,3) node[prod] {p};
+
+            \draw[edg] (0,4) -- (0,5);
+            \draw[edg] (0,5) -- (1,6);
+            \draw[edg] (0,5) -- (-1,6);
+            \draw (0,5) node[coprod] {c};
+
+            \draw[edg] (-1,6) -- (0,7);
+            \draw[edg] (1,6) -- (0,7);
+            \draw[edg] (0,7) -- (0,8);
+            \draw (0,7) node[prod] {p};
+
+            %% SECOND
+            \draw[edg] (6,0) -- (6,1);
+            \draw[edg] (6,1) -- (9,4);
+            \draw[edg] (6,1) -- (5,2);
+            \draw (6,1) node[coprod] {c};
+
+            \draw[edg] (5,2) -- (4,3);
+            \draw[edg] (4,3) -- (3,4);
+            \draw[edg] (4,3) -- (5,4);
+            \draw (4,3) node[coprod] {c};
+
+            \draw[edg] (3,4) -- (4,5);
+            \draw[edg] (5,4) -- (4,5);
+            \draw[edg] (4,5) -- (5,6);
+            \draw (4,5) node[prod] {p};
+
+            \draw[edg] (5,6) -- (6,7);
+            \draw[edg] (9,4) -- (6,7);
+            \draw[edg] (6,7) -- (6,8);
+            \draw (6,7) node[prod] {p};
+
+            %% TROISIEME
+            \draw[edg] (14,0) -- (14,1);
+            \draw[edg] (14,1) -- (17,4);
+            \draw[edg] (14,1) -- (13,2);
+            \draw (14,1) node[coprod] {c};
+
+            \draw[edg] (13,2) -- (12,3);
+            \draw[edg] (12,3) -- (11,4);
+            \draw[edg] (12,3) -- (16,5);
+            \draw (12,3) node[coprod] {c};
+
+            \draw[edg] (11,4) -- (12,5);
+            \draw[edg] (12,5) -- (13,6);
+            \draw[edg] (13,6) -- (14,7);
+            \draw[edg] (17,4) -- (14,7);
+            \draw[edg] (14,7) -- (14,8);
+            \draw (14,7) node[prod] {p};
+            \draw (16,5) node[prod] {p};
+
+            %% QUATRIEME
+            \draw[edg] (22,0) -- (22,1);
+            \draw[edg] (22,1) -- (25,4);
+            \draw[edg] (22,1) -- (21,2);
+            \draw (22,1) node[coprod] {c};
+
+            \draw[edg] (21,2) -- (20,3);
+            \draw[edg] (20,3) -- (19,4);
+            \draw[edg] (24,3) -- (20,5);
+            \draw (24,3) node[coprod] {c};
+
+            \draw[edg] (19,4) -- (20,5);
+            \draw[edg] (20,5) -- (21,6);
+            \draw[edg] (21,6) -- (22,7);
+            \draw[edg] (25,4) -- (22,7);
+            \draw[edg] (22,7) -- (22,8);
+            \draw (22,7) node[prod] {p};
+            \draw (20,5) node[prod] {p};
+
+            %% CINQUIEME
+            \draw[edg] (30,0) -- (30,1);
+            \draw[edg] (30,1) -- (27,4);
+            \draw[edg] (30,1) -- (31,2);
+            \draw (30,1) node[coprod] {c};
+
+            \draw[edg] (31,2) -- (32,3);
+            \draw[edg] (32,3) -- (33,4);
+            \draw[edg] (32,3) -- (31,4);
+            \draw (32,3) node[coprod] {c};
+
+            \draw[edg] (33,4) -- (32,5);
+            \draw[edg] (31,4) -- (32,5);
+            \draw[edg] (32,5) -- (31,6);
+            \draw (32,5) node[prod] {p};
+
+            \draw[edg] (31,6) -- (30,7);
+            \draw[edg] (27,4) -- (30,7);
+            \draw[edg] (30,7) -- (30,8);
+            \draw (30,7) node[prod] {p};
+        \end{tikzpicture}
+    \caption{Les cinq prographes contenant $2$ produits et $2$
+      coproduit}
+    \label{fig:prodcoprod}
+    \end{figure}
+\end{footnotesize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
