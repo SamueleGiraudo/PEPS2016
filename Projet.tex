@@ -169,11 +169,17 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%histoire de situer un peu le domaine !
+Les objets que nous étudions, les PROs, sont d'origine algébrique (topologie, théorie
+des opérades...) mais notre approche est essentiellement combinatoire 
+(algébrique, énumérative, bijective...) et symbolique (calcul formel, algorithmes, expérimentation...)  
+
+
 \subsection{Arbres syntaxiques et opérades}
-Les arbres syntaxiques sont des structures arborescentes qui apparaissent 
-dans de multiples contextes. Ils figurent en effet à l'intersection de
-l'informatique et des mathématiques car ils interviennent, par exemple,
-à la fois en compilation et en théorie des langages, et également en 
+Les arbres syntaxiques sont des structures qui apparaissent 
+dans de multiples contextes en informatique et en mathématiques: 
+par exemple en compilation et en théorie des langages, et également en 
 algèbre universelle et en théorie des opérades.
 
 Leur principal intérêt est d'offrir une représentation d'expressions 
@@ -219,7 +225,7 @@ $\cdot$ se traduit en l'identification d'arbres syntaxiques
 
 Les opérades~\cite{Mar08,LV12} sont des structures offrant une vision 
 algébrique des arbres syntaxiques. Les éléments d'une opérade sont en 
-effet des opérateurs et dans une opérade, il est possible de composer 
+effet des opérateurs et il est possible de composer 
 deux opérateurs pour en construire de plus gros. Au même titre que les 
 monoïdes libres peuvent être étudiés par le biais de la combinatoire des 
 mots, les opérades libres peuvent l'être en puisant des ressources
@@ -232,8 +238,7 @@ d'en extraire des propriétés, d'obtenir des résultats énumératifs ou
 encore d'établir des bijections entre différentes familles d'objets
 combinatoires~\cite{Cha08,CG14,Gir15}. De plus, l'étude des opérades 
 fait appel à des outils combinatoires classiques, comme les séries 
-génératrices et, comme nous l'avons déjà évoqué, la combinatoire de 
-diverses familles d'arbres.
+génératrices et leurs compositions, multiplication, etc.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -376,12 +381,19 @@ La figure~\ref{fig:exemple_prographe} donne un exemple d'un tel objet.
     \label{fig:exemple_prographe}
 \end{figure}
 
+Même si les objets ont été définis formellement dans les années 1950--1960, la théorie des opérades
+a connu une ``renaissance'' dans les années 1990, et commence à être de mieux en mieux comprise. 
+Les PROs, qui en sont une généralisation naturelle, pourrait suivre le même chemin.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Questions et objectifs}
 Toute la recherche prévue par ce projet porte sur la compréhension des 
-prographes. Nous souhaitons utiliser ces objets en tant qu'outils pour 
+prographes et de leurs interactions avec les théories combinatoires classiques
+telles que: empilements, cartes planaires, groupes symétriques...
+
+Nous souhaitons utiliser ces objets en tant qu'outils pour 
 modéliser des phénomènes déjà explorés ainsi qu'étudier les prographes 
 de manière algébrique et combinatoire. Voici les directions principales~:
 \begin{enumerate}[fullwidth,label={\bf (\arabic*)}]
@@ -502,13 +514,23 @@ de manière algébrique et combinatoire. Voici les directions principales~:
     algébriques des PROs en théorie des cartes.
 \end{enumerate}
 
-Ces axes de recherche étant variés, nous espérons à l'issue de 
-l'exploration de quelques-unes de ces questions, soumettre un article à 
-un journal de combinatoire algébrique ainsi qu'un article à une 
-conférence du même domaine. Si les résultats et la direction prise
-par notre recherche nous le permet, il nous sera envisageable de soumettre
-certains résultats à un journal d'informatique théorique.
-Et puis ensuite on fera un projet ANR pour enchaîner.
+
+% Ces axes de recherche étant variés, nous espérons à l'issue de 
+% l'exploration de quelques-unes de ces questions, soumettre un article à 
+% un journal de combinatoire algébrique ainsi qu'un article à une 
+% conférence du même domaine. Si les résultats et la direction prise
+% par notre recherche nous le permet, il nous sera envisageable de soumettre
+% certains résultats à un journal d'informatique théorique.
+
+% Essayons d'etre plus ambitieux !
+La diversité des axes de recherche nous permet de prévoir de publier soit
+dans un journal de combinatoire, soit dans un journal d'informatique théorique,
+selon les résultats. La première publication des résultats du projet, réunissant
+les 4 membres, contiendra aussi un survol de résultats connus et les diverses 
+questions ouvertes, directions futures, qui restent en suspens. L'objectif est 
+d'ouvrir la voie à un potentiel projet ANR. La vastes littérature sur la combinatoire
+des opérades montre qu'il y a potentiellement beaucoup de choses à généraliser aux PROs.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -531,7 +553,7 @@ $1, 5, 42, 462, 6006, \dots$, ainsi on remarque que la construction
 généralise les arbres binaires classiques comptés par
 Catalan. Certaines familles de PROs libres font apparaître des
 séquences comme A001906 (bisection des nombres de Fibonacci) ou encore
-A005021 (chenims aléatoires).
+A005021 (chemins aléatoires).
 \vspace{-0.4cm}
 \begin{footnotesize}
     \begin{figure}[ht]
