@@ -132,13 +132,12 @@ fill=YellowGreen!20,minimum size=5mm,inner sep=1pt,line width=1pt]
     des opérateurs algébriques), un graphe (les composants sont des 
     sommets), un circuit électronique, une carte, ou encore de manière
     plus subtile, une permutation. Ces objets combinatoires généralisent 
-    ainsi un bon nombre de structures discrètes mais restent des 
-    structures peu étudiées. Par exemple, la conception d'un algorithme 
+    ainsi un bon nombre de structures discrètes mais demeurent
+    peu étudiés. Par exemple, la conception d'un algorithme 
     efficace pour leur génération exhaustive est déjà un défi. Les 
-    prographes entretiennent de fortes interactions avec l'algèbre et
-    interviennent notamment dans l'étude des opérades et des PROs. Ce 
-    projet propose une étude à la fois combinatoire et algébrique des 
-    prographes.
+    prographes entretenant par ailleurs de fortes interactions avec 
+    la théorie des opérades des PROs, ce projet propose une étude à la 
+    fois combinatoire et algébrique des prographes.
 }}
 \bigskip
 
@@ -558,125 +557,126 @@ les nombres de Catalan tri-dimensionnels (suite~\OEIS{A005789}%
 \footnote{Cette référence et les suivantes sont celles de l'Encyclopédie 
 en ligne des suites d'entiers \url{https://oeis.org/}.}%
 ). Cette construction semble ainsi généraliser les arbres binaires 
-classiques comptés par les nombres de Catalan (\OEIS{A000108}). Certaines
-familles de prographes font apparaître des suites comme \OEIS{A001906}
-(bissection des nombres de Fibonacci) ou encore \OEIS{A005021} (chemins
-aléatoires).
-
+classiques comptés par les nombres de Catalan (\OEIS{A000108}). 
 \begin{footnotesize}
     \begin{figure}[ht]
         \centering
-        \begin{tikzpicture}[scale=0.3]
-            \tikzstyle{prod} = [draw, fill=blue!20, minimum size=1em]
-            \tikzstyle{coprod} = [draw, fill=red!20, minimum size=1em]
+        \begin{tikzpicture}[scale=0.4]
+            \tikzstyle{prod} = [draw, fill=YellowGreen!40, minimum size=1.5em]
+            \tikzstyle{coprod} = [draw, fill=Maroon!30, minimum size=1.5em]
             \tikzstyle{edg} = [thick]
 
             %% PREMIER
             \draw[edg] (0,0) -- (0,1);
             \draw[edg] (0,1) -- (1,2);
             \draw[edg] (0,1) -- (-1,2);
-            \draw (0,1) node[coprod] {c};
+            \draw (0,1) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (1,2) -- (0,3);
             \draw[edg] (-1,2) -- (0,3);
             \draw[edg] (0,3) -- (0,4);
-            \draw (0,3) node[prod] {p};
+            \draw (0,3) node[prod] {\begin{math}\cdot\end{math}};
 
             \draw[edg] (0,4) -- (0,5);
             \draw[edg] (0,5) -- (1,6);
             \draw[edg] (0,5) -- (-1,6);
-            \draw (0,5) node[coprod] {c};
+            \draw (0,5) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (-1,6) -- (0,7);
             \draw[edg] (1,6) -- (0,7);
             \draw[edg] (0,7) -- (0,8);
-            \draw (0,7) node[prod] {p};
+            \draw (0,7) node[prod] {\begin{math}\cdot\end{math}};
 
             %% SECOND
             \draw[edg] (6,0) -- (6,1);
             \draw[edg] (6,1) -- (9,4);
             \draw[edg] (6,1) -- (5,2);
-            \draw (6,1) node[coprod] {c};
+            \draw (6,1) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (5,2) -- (4,3);
             \draw[edg] (4,3) -- (3,4);
             \draw[edg] (4,3) -- (5,4);
-            \draw (4,3) node[coprod] {c};
+            \draw (4,3) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (3,4) -- (4,5);
             \draw[edg] (5,4) -- (4,5);
             \draw[edg] (4,5) -- (5,6);
-            \draw (4,5) node[prod] {p};
+            \draw (4,5) node[prod] {\begin{math}\cdot\end{math}};
 
             \draw[edg] (5,6) -- (6,7);
             \draw[edg] (9,4) -- (6,7);
             \draw[edg] (6,7) -- (6,8);
-            \draw (6,7) node[prod] {p};
+            \draw (6,7) node[prod] {\begin{math}\cdot\end{math}};
 
             %% TROISIEME
             \draw[edg] (14,0) -- (14,1);
             \draw[edg] (14,1) -- (17,4);
             \draw[edg] (14,1) -- (13,2);
-            \draw (14,1) node[coprod] {c};
+            \draw (14,1) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (13,2) -- (12,3);
             \draw[edg] (12,3) -- (11,4);
             \draw[edg] (12,3) -- (16,5);
-            \draw (12,3) node[coprod] {c};
+            \draw (12,3) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (11,4) -- (12,5);
             \draw[edg] (12,5) -- (13,6);
             \draw[edg] (13,6) -- (14,7);
             \draw[edg] (17,4) -- (14,7);
             \draw[edg] (14,7) -- (14,8);
-            \draw (14,7) node[prod] {p};
-            \draw (16,5) node[prod] {p};
+            \draw (14,7) node[prod] {\begin{math}\cdot\end{math}};
+            \draw (16,5) node[prod] {\begin{math}\cdot\end{math}};
 
             %% QUATRIEME
             \draw[edg] (22,0) -- (22,1);
             \draw[edg] (22,1) -- (25,4);
             \draw[edg] (22,1) -- (21,2);
-            \draw (22,1) node[coprod] {c};
+            \draw (22,1) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (21,2) -- (20,3);
             \draw[edg] (20,3) -- (19,4);
             \draw[edg] (24,3) -- (20,5);
-            \draw (24,3) node[coprod] {c};
+            \draw (24,3) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (19,4) -- (20,5);
             \draw[edg] (20,5) -- (21,6);
             \draw[edg] (21,6) -- (22,7);
             \draw[edg] (25,4) -- (22,7);
             \draw[edg] (22,7) -- (22,8);
-            \draw (22,7) node[prod] {p};
-            \draw (20,5) node[prod] {p};
+            \draw (22,7) node[prod] {\begin{math}\cdot\end{math}};
+            \draw (20,5) node[prod] {\begin{math}\cdot\end{math}};
 
             %% CINQUIEME
             \draw[edg] (30,0) -- (30,1);
             \draw[edg] (30,1) -- (27,4);
             \draw[edg] (30,1) -- (31,2);
-            \draw (30,1) node[coprod] {c};
+            \draw (30,1) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (31,2) -- (32,3);
             \draw[edg] (32,3) -- (33,4);
             \draw[edg] (32,3) -- (31,4);
-            \draw (32,3) node[coprod] {c};
+            \draw (32,3) node[coprod] {\begin{math}\Delta\end{math}};
 
             \draw[edg] (33,4) -- (32,5);
             \draw[edg] (31,4) -- (32,5);
             \draw[edg] (32,5) -- (31,6);
-            \draw (32,5) node[prod] {p};
+            \draw (32,5) node[prod] {\begin{math}\cdot\end{math}};
 
             \draw[edg] (31,6) -- (30,7);
             \draw[edg] (27,4) -- (30,7);
             \draw[edg] (30,7) -- (30,8);
-            \draw (30,7) node[prod] {p};
+            \draw (30,7) node[prod] {\begin{math}\cdot\end{math}};
         \end{tikzpicture}
     \caption{Les cinq prographes contenant deux produits, deux coproduits,
     une entrée et une sortie.}
     \label{fig:prographes_produits_coproduits}
     \end{figure}
 \end{footnotesize}
+
+De plus, le dénombrement de certaines familles de prographes fait
+apparaître des suites comme \OEIS{A001906} (bissection des nombres de 
+Fibonacci) ou encore \OEIS{A005021} (chemins aléatoires sur certains 
+graphes).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -769,8 +769,8 @@ Le budget demandé est 14000\texteuro. Voici sa répartition.
     Il s'agit de renouveler du matériel vieillissant.
     L'expérimentation par le calcul formel est cruciale dans ce
     projet et nécessite des ordinateurs avec des capacités de calcul
-    raisonnables. Nous prévoyons une machine par membre du projet à
-    1500\texteuro{} chacune, soit 4500\texteuro{} (par exemple~:
+    raisonnables. Nous prévoyons une machine pour trois des membres du 
+    projet à 1500\texteuro{} chacune, soit 4500\texteuro{} (par exemple~:
     deux portables et un fixe).
 
 \end{itemize}
@@ -796,7 +796,8 @@ Le budget demandé est 14000\texteuro. Voici sa répartition.
     Le budget
     de 375\texteuro{} par rencontre servira à inviter des chercheurs
     qui travaillent sur des thèmes similaires et qui ne sont pas
-    membres du projet, comme Frédéric Chapoton ou Loïc Foissy.
+    membres du projet, comme Frédéric Chapoton, Loïc Foissy, Jean-Gabriel
+    Luque ou Ludovic Mignot.
 \end{itemize}
 
 {\bf Autres~:} 1500\texteuro.
